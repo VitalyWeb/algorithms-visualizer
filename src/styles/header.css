@@ -15,15 +15,32 @@
 }
 
 .header__nav a {
+  position: relative;
   margin-left: 1.5rem;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
+}
+
+.header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #1abc9c, #16a085);
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
 
 .header__nav a:hover {
   color: #1abc9c;
 }
 
-.logo {
-  height: 4rem;
+.header__nav a:hover::after {
+  width: 100%;
+}
+
+.logo { 
+  height: 4rem; 
 }

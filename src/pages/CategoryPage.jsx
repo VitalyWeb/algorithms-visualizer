@@ -10,7 +10,7 @@ export default function CategoryPage() {
 
   return (
     <main className="main">
-      <Link to="/" className="btn-back">← Назад</Link>
+      <Link to="/" className="btn-back"><i className="fas fa-arrow-left"></i>Назад</Link>
       <h2>{category.title}</h2>
       <div className="main__grid">
         {category.algorithms.map(a => (

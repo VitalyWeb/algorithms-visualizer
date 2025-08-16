@@ -50,3 +50,29 @@
   white-space: pre-wrap;
   line-height: 1.5;
 }
+
+.code-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.code-tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.code-tab:hover {
+  background: #eee;
+}
+
+.code-tab.active {
+  background: #1abc9c;
+  color: #fff;
+  border-color: #1abc9c;
+}
