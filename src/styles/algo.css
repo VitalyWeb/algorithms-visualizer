@@ -1,0 +1,52 @@
+.algo__content {
+  background: #f0f4ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  white-space: pre-line;
+}
+
+.algo__animation {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.algo__animation img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.algo__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.algo__table th, .algo__table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.algo__table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.algo__table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.algo__pseudocode {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: "Fira Code", monospace;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
