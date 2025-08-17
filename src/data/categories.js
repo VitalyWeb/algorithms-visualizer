@@ -5,13 +5,13 @@ import numeric from "../img/numeric-min.png";
 import tree from "../img/tree-min.png";
 
 // sort
-import { descriptionQuickSort, ideaQuickSort, quickSortJS, quickSortPy, quickSortCpp } from "../algorithms/sort/quick-sort.js";
-import { descriptionTimSort, ideaTimSort, timSortJS, timSortPy, timSortCpp } from "../algorithms/sort/tim-sort.js";
-import { descriptionIntroSort, ideaIntroSort, introSortJs, introSortPy, introSortCpp } from "../algorithms/sort/intro-sort.js";
-import { descriptionRadixSort, ideaRadixSort, radixSortJS, radixSortPy, radixSortCpp } from "../algorithms/sort/radix-sort.js";
-import { descriptionCountSort, ideaCountSort, countSortJs, countSortPy, countSortCpp } from "../algorithms/sort/counting-sort.js";
-import { descriptionMergeSort, ideaMergeSort, mergeSortJs, mergeSortPy, mergeSortCpp } from "../algorithms/sort/merge-sort.js";
-import { descriptionBucketSort, ideaBucketSort, bucketSortJs, bucketSortPy, bucketSortCpp } from "../algorithms/sort/bucket-sort.js";
+import * as Quick from "../algorithms/sort/quick-sort.js";
+import * as Tim from "../algorithms/sort/tim-sort.js";
+import * as Intro from "../algorithms/sort/intro-sort.js";
+import * as Radix from "../algorithms/sort/radix-sort.js";
+import * as Count from "../algorithms/sort/counting-sort.js";
+import * as Merge from "../algorithms/sort/merge-sort.js";
+import * as Bucket from "../algorithms/sort/bucket-sort.js";
 
 // search
 import * as Binary from "../algorithms/search/binary-search.js"
@@ -31,58 +31,58 @@ export const CATEGORIES = [
       { 
         id: "quick-sort", 
         title: "Быстрая сортировка", 
-        description: descriptionQuickSort, 
-        idea: ideaQuickSort, 
+        description: Quick.descriptionQuickSort, 
+        idea: Quick.ideaQuickSort, 
         complexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)", space: "O(log n)" }, 
-        code: { javascript: quickSortJS, python: quickSortPy, cpp: quickSortCpp } 
+        code: { javascript: Quick.quickSortJS, python: Quick.quickSortPy, cpp: Quick.quickSortCpp } 
       },
       { 
         id: "tim-sort", 
         title: "Тимсорт", 
-        description: descriptionTimSort, 
-        idea: ideaTimSort, 
+        description: Tim.descriptionTimSort, 
+        idea: Tim.ideaTimSort, 
         complexity: {best: "O(n)", average: "O(n log n)", worst: "O(n log n)", space: "O(n)"}, 
-        code: {javascript: timSortJS, python: timSortPy, cpp: timSortCpp} 
+        code: {javascript: Tim.timSortJS, python: Tim.timSortPy, cpp: Tim.timSortCpp} 
       },
       { 
         id: "intro-sort", 
         title: "Интроспективная сортировка", 
-        description: descriptionIntroSort, 
-        idea: ideaIntroSort, 
+        description: Intro.descriptionIntroSort, 
+        idea: Intro.ideaIntroSort, 
         complexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)", space: "O(log n)"}, 
-        code: {javascript: introSortJs, python: introSortPy, cpp: introSortCpp} 
+        code: {javascript: Intro.introSortJs, python: Intro.introSortPy, cpp: Intro.introSortCpp} 
       },
       { 
         id: "radix-sort", 
         title: "Поразрядная сортировка", 
-        description: descriptionRadixSort, 
-        idea: ideaRadixSort, 
+        description: Radix.descriptionRadixSort, 
+        idea: Radix.ideaRadixSort, 
         complexity: {best: "O(n * k)", average: "O(n * k)", worst: "O(n * k)", space: "O(n + k)"}, 
-        code: {javascript: radixSortJS, python: radixSortPy, cpp: radixSortCpp} 
+        code: {javascript: Radix.radixSortJS, python: Radix.radixSortPy, cpp: Radix.radixSortCpp} 
       },
       { 
         id: "counting-sort", 
         title: "Сортировка подсчетом", 
-        description: descriptionCountSort, 
-        idea: ideaCountSort, 
+        description: Count.descriptionCountSort, 
+        idea: Count.ideaCountSort, 
         complexity: {best: "O(n + k)", average: "O(n + k)", worst: "O(n + k)", space: "O(n + k)"}, 
-        code: {javascript: countSortJs, python: countSortPy, cpp: countSortCpp} 
+        code: {javascript: Count.countSortJs, python: Count.countSortPy, cpp: Count.countSortCpp} 
       },
       { 
         id: "merge-sort", 
         title: "Сортировка слиянием", 
-        description: descriptionMergeSort, 
-        idea: ideaMergeSort, 
+        description: Merge.descriptionMergeSort, 
+        idea: Merge.ideaMergeSort, 
         complexity: {best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)", space: "O(n)"}, 
-        code: {javascript: mergeSortJs, python: mergeSortPy, cpp: mergeSortCpp} 
+        code: {javascript: Merge.mergeSortJs, python: Merge.mergeSortPy, cpp: Merge.mergeSortCpp} 
       },
       { 
         id: "bucket-sort", 
         title: "Сортировка с разбросом", 
-        description: descriptionBucketSort, 
-        idea: ideaBucketSort, 
+        description: Bucket.descriptionBucketSort, 
+        idea: Bucket.ideaBucketSort, 
         complexity: {best: "O(n + k)", average: "O(n + k)", worst: "O(n^2)", space: "O(n + k)"}, 
-        code: {javascript: bucketSortJs, python: bucketSortPy, cpp: bucketSortCpp} 
+        code: {javascript: Bucket.bucketSortJs, python: Bucket.bucketSortPy, cpp: Bucket.bucketSortCpp} 
       },
     ]
   },

@@ -1,9 +1,5 @@
-export function* countingSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 20));
-    }
+export function* countingSortGenerator(initialArray) {
+    const arr = [...initialArray];
 
     yield { array: [...arr], count: [], swapping: [], writing: -1, sorted: [], low: 0, high: arr.length - 1 };
 

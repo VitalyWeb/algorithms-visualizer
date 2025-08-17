@@ -1,9 +1,6 @@
-export function* fibonacciSearchGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 90) + 10);
-    }
+export function* fibonacciSearchGenerator(initialArray) {
+    const arr = [...initialArray];
+    
     arr.sort((a, b) => a - b);
     const target = arr[Math.floor(Math.random() * arr.length)];
     const n = arr.length;

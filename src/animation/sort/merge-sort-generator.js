@@ -1,9 +1,5 @@
-export function* mergeSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 100));
-    }
+export function* mergeSortGenerator(initialArray) {
+    const arr = [...initialArray];
 
     yield { array: [...arr], swapping: [], low: 0, high: arr.length - 1, sorted: [] };
 

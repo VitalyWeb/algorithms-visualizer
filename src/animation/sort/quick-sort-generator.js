@@ -1,9 +1,5 @@
-export function* quickSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 90) + 10);
-    }
+export function* quickSortGenerator(initialArray) {
+    const arr = [...initialArray];
     
     yield { array: [...arr], pivot: -1, swapping: [], low: 0, high: arr.length - 1, sorted: [] };
 

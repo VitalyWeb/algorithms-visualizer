@@ -1,9 +1,5 @@
-export function* timSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 90) + 10);
-    }
+export function* timSortGenerator(initialArray) {
+    const arr = [...initialArray];
 
     const RUN = 5;
     yield { array: [...arr], swapping: [], sorted: [], low: 0, high: arr.length - 1 };

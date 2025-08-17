@@ -29,6 +29,8 @@ export default function AlgorithmPage() {
   const codeForLang = algo.code?.[language] || algo.pseudocode || "";
   const animationGenerator = animationGenerators[id];
 
+  const showArraySizeControls = algo.categoryId === "sorting" || algo.categoryId === "search";
+
   return (
     <main className="main">
       <Link to={`/category/${algo.categoryId}`} className="btn-back">
@@ -54,7 +56,7 @@ export default function AlgorithmPage() {
 
       <h3>Визуализация</h3>
       <div className="algo__animation">
-            <AnimationPlayer animationGenerator={animationGenerator} />
+            <AnimationPlayer animationGenerator={animationGenerator} showArraySizeControls={showArraySizeControls} />
       </div>
 
       {codeForLang && (

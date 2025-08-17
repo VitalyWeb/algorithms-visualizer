@@ -1,12 +1,9 @@
-export function* bucketSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 90) + 10);
-    }
+export function* bucketSortGenerator(initialArray) {
+    const arr = [...initialArray];
 
     yield { array: [...arr], buckets: [], swapping: [], sorted: [], currentBucket: -1 };
 
+    const N = arr.length;
     const bucketCount = Math.ceil(Math.sqrt(N));
     const buckets = Array.from({ length: bucketCount }, () => []);
 

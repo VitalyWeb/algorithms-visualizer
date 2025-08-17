@@ -1,9 +1,5 @@
-export function* introSortGenerator() {
-    const N = 20;
-    const arr = [];
-    for (let i = 0; i < N; i++) {
-        arr.push(Math.floor(Math.random() * 90) + 10);
-    }
+export function* introSortGenerator(initialArray) {
+    const arr = [...initialArray];
 
     const maxDepth = 2 * Math.floor(Math.log2(arr.length));
     yield { array: [...arr], swapping: [], sorted: [], low: 0, high: arr.length - 1 };
