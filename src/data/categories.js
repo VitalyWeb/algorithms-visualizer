@@ -1,12 +1,10 @@
 import sort from "../img/sortings-min.png";
 import search from "../img/search-min.png";
 import graph from "../img/graph-min.png";
-import string from "../img/string-min.png";
-import greedy from "../img/greedy-min.png";
 import numeric from "../img/numeric-min.png";
-import recursive from "../img/recursive-min.png";
 import tree from "../img/tree-min.png";
 
+// sort
 import { descriptionQuickSort, ideaQuickSort, quickSortJS, quickSortPy, quickSortCpp } from "../algorithms/sort/quick-sort.js";
 import { descriptionTimSort, ideaTimSort, timSortJS, timSortPy, timSortCpp } from "../algorithms/sort/tim-sort.js";
 import { descriptionIntroSort, ideaIntroSort, introSortJs, introSortPy, introSortCpp } from "../algorithms/sort/intro-sort.js";
@@ -15,19 +13,28 @@ import { descriptionCountSort, ideaCountSort, countSortJs, countSortPy, countSor
 import { descriptionMergeSort, ideaMergeSort, mergeSortJs, mergeSortPy, mergeSortCpp } from "../algorithms/sort/merge-sort.js";
 import { descriptionBucketSort, ideaBucketSort, bucketSortJs, bucketSortPy, bucketSortCpp } from "../algorithms/sort/bucket-sort.js";
 
+// search
+import * as Binary from "../algorithms/search/binary-search.js"
+import * as Linear from "../algorithms/search/linear-search.js"
+import * as Ternary from "../algorithms/search/ternary-search.js"
+import * as Exponential from "../algorithms/search/exponential-search.js"
+import * as Fibonacci from "../algorithms/search/fibonacci-search.js"
+import * as Jump from "../algorithms/search/jump-search.js"
+import * as Interpolation from "../algorithms/search/interpolation-search.js"
+
 export const CATEGORIES = [
   {
     id: "sorting",
     title: "Сортировка и организация данных",
     image: sort,
     algorithms: [
-      {
-        id: "quick-sort",
-        title: "Быстрая сортировка",
-        description: descriptionQuickSort,
-        idea: ideaQuickSort,
-        complexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)", space: "O(log n)" },
-        code: { javascript: quickSortJS, python: quickSortPy, cpp: quickSortCpp }
+      { 
+        id: "quick-sort", 
+        title: "Быстрая сортировка", 
+        description: descriptionQuickSort, 
+        idea: ideaQuickSort, 
+        complexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)", space: "O(log n)" }, 
+        code: { javascript: quickSortJS, python: quickSortPy, cpp: quickSortCpp } 
       },
       { 
         id: "tim-sort", 
@@ -66,14 +73,14 @@ export const CATEGORIES = [
         title: "Сортировка слиянием", 
         description: descriptionMergeSort, 
         idea: ideaMergeSort, 
-        complexity: {best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)", space: "O(n)"},
+        complexity: {best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)", space: "O(n)"}, 
         code: {javascript: mergeSortJs, python: mergeSortPy, cpp: mergeSortCpp} 
       },
       { 
         id: "bucket-sort", 
         title: "Сортировка с разбросом", 
         description: descriptionBucketSort, 
-        idea: ideaBucketSort,  
+        idea: ideaBucketSort, 
         complexity: {best: "O(n + k)", average: "O(n + k)", worst: "O(n^2)", space: "O(n + k)"}, 
         code: {javascript: bucketSortJs, python: bucketSortPy, cpp: bucketSortCpp} 
       },
@@ -84,25 +91,62 @@ export const CATEGORIES = [
     title: "Алгоритмы поиска",
     image: search,
     algorithms: [
-      { id: "linear-search", title: "Линейный поиск", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "binary-search", title: "Бинарный поиск", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "interpolation-search", title: "Интерполяционный поиск", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "exponential-search", title: "Экспоненциальный поиск", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "ternary-search", title: "Тернарный поиск", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "jump-search", title: "Поиск прыжками", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "fibonacci-search", title: "Поиск Фибоначчи", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-    ]
-  },
-  {
-    id: "string",
-    title: "Работа со строками",
-    image: string,
-    algorithms: [
-      { id: "reverse-string", title: "Обратная строка", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "palindrome-check", title: "Проверка палиндрома", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "substring-search", title: "Поиск подстроки", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "string-compression", title: "Сжатие строки", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "char-frequency", title: "Подсчет частоты символов", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
+      { 
+        id: "linear-search", 
+        title: "Линейный поиск", 
+        description: Linear.descriptionLinearSearch, 
+        idea: Linear.ideaLinearSearch, 
+        complexity: { best: "O(1)", average: "O(n)", worst: "O(n)", space: "O(1)" }, 
+        code: { javascript: Linear.linearSearchJS, python: Linear.linearSearchPy, cpp: Linear.linearSearchCpp } 
+      },
+      { 
+        id: "binary-search", 
+        title: "Бинарный поиск", 
+        description: Binary.descriptionBinarySearch, 
+        idea: Binary.ideaBinarySearch, 
+        complexity: { best: "O(1)", average: "O(log n)", worst: "O(log n)", space: "O(1)" }, 
+        code: { javascript: Binary.binarySearchJS, python: Binary.binarySearchPy, cpp: Binary.binarySearchCpp } 
+      },
+      { 
+        id: "interpolation-search", 
+        title: "Интерполяционный поиск", 
+        description: Interpolation.descriptionInterpolationSearch, 
+        idea: Interpolation.ideaInterpolationSearch, 
+        complexity: { best: "O(1)", average: "O(log log n)", worst: "O(n)", space: "O(1)" }, 
+        code: { javascript: Interpolation.interpolationSearchJS, python: Interpolation.interpolationSearchPy, cpp: Interpolation.interpolationSearchCpp } 
+      },
+      { 
+        id: "exponential-search", 
+        title: "Экспоненциальный поиск", 
+        description: Exponential.descriptionExponentialSearch, 
+        idea: Exponential.ideaExponentialSearch, 
+        complexity: { best: "O(1)", average: "O(log i)", worst: "O(log i)", space: "O(1)" }, 
+        code: { javascript: Exponential.exponentialSearchJS, python: Exponential.exponentialSearchPy, cpp: Exponential.exponentialSearchCpp } 
+      },
+      { 
+        id: "ternary-search", 
+        title: "Тернарный поиск", 
+        description: Ternary.descriptionTernarySearch, 
+        idea: Ternary.ideaTernarySearch, 
+        complexity: { best: "O(1)", average: "O(log n)", worst: "O(log n)", space: "O(1)" }, 
+        code: { javascript: Ternary.ternarySearchJS, python: Ternary.ternarySearchPy, cpp: Ternary.ternarySearchCpp } 
+      },
+      { 
+        id: "jump-search", 
+        title: "Поиск прыжками", 
+        description: Jump.descriptionJumpSearch, 
+        idea: Jump.ideaJumpSearch, 
+        complexity: { best: "O(sqrt(n))", average: "O(sqrt(n))", worst: "O(sqrt(n))", space: "O(1)" }, 
+        code: { javascript: Jump.jumpSearchJS, python: Jump.jumpSearchPy, cpp: Jump.jumpSearchCpp } 
+      },
+      { 
+        id: "fibonacci-search", 
+        title: "Поиск Фибоначчи", 
+        description: Fibonacci.descriptionFibonacciSearch, 
+        idea: Fibonacci.ideaFibonacciSearch, 
+        complexity: { best: "O(1)", average: "O(log n)", worst: "O(log n)", space: "O(1)" }, 
+        code: { javascript: Fibonacci.fibonacciSearchJS, python: Fibonacci.fibonacciSearchPy, cpp: Fibonacci.fibonacciSearchCpp } 
+      },
     ]
   },
   {
@@ -131,17 +175,6 @@ export const CATEGORIES = [
     ]
   },
   {
-    id: "greedy",
-    title: "Жадные алгоритмы",
-    image: greedy,
-    algorithms: [
-      { id: "fractional-knapsack", title: "Задача о рюкзаке (Fractional)", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "interval-scheduling", title: "Сортировка интервалов / планирование мероприятий", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "mst-kruskal", title: "Минимальное остовное дерево (Kruskal)", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "mst-prim", title: "Минимальное остовное дерево (Prim)", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-    ]
-  },
-  {
     id: "numeric",
     title: "Числовые алгоритмы",
     image: numeric,
@@ -151,18 +184,6 @@ export const CATEGORIES = [
       { id: "fast-power", title: "Быстрое возведение в степень", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
       { id: "prime-check", title: "Проверка простых чисел", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
       { id: "factorial", title: "Факториал", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-    ]
-  },
-  {
-    id: "recursive",
-    title: "Рекурсия и DP",
-    image: recursive,
-    algorithms: [
-      { id: "fibonacci", title: "Фибоначчи (рекурсия и мемоизация)", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "grid-paths", title: "Подсчет путей в сетке", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "min-path-sum", title: "Минимальная сумма пути", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "partition-problem", title: "Разбиение чисел (Partition)", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
-      { id: "n-queens", title: "Задача N-Queens", description: undefined, idea: undefined, complexity: {}, code: {javascript: undefined, python: undefined, cpp: undefined} },
     ]
   },
 ];

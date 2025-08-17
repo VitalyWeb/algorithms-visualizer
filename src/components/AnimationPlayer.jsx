@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
+import { drawSearch } from "../animation/logic-draw/search-logic"
 import { drawBfs } from "../animation/logic-draw/graph-logic";
 
 const AnimationPlayer = ({ animationGenerator }) => {
@@ -23,7 +24,8 @@ const AnimationPlayer = ({ animationGenerator }) => {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
-    if (state.array) drawSort(ctx, rect.width, rect.height, state);
+    if (state.array && state.target !== undefined) drawSearch(ctx, rect.width, rect.height, state);
+    else if (state.array) drawSort(ctx, rect.width, rect.height, state);
     else if (state.graph) drawBfs(ctx, rect.width, rect.height, state);
 };
 
