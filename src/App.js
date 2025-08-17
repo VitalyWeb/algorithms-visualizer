@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SearchProvider } from "./context/SearchContext";
+import { LoaderProvider } from "./context/LoaderContext";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -9,7 +11,9 @@ import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
+  
   return (
+    <LoaderProvider>
     <SearchProvider>
       <BrowserRouter>
         <Header />
@@ -23,5 +27,6 @@ export default function App() {
         <Footer />
       </BrowserRouter>
     </SearchProvider>
+    </LoaderProvider>
   );
 }

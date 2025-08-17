@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
-
 import { flatAlgorithms } from "../data/categories";
+import { useLoader } from "../context/LoaderContext"
 import NotFound from "./NotFound";
 
 export default function AlgorithmPage() {
@@ -11,6 +12,13 @@ export default function AlgorithmPage() {
   const algo = flatAlgorithms.find((a) => a.id === id);
 
   const [language, setLanguage] = useState("javascript");
+  const { setLoading } = useLoader();
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, [setLoading]);
 
   if (!algo) return <NotFound />;
 
@@ -30,7 +38,7 @@ export default function AlgorithmPage() {
       <h3>Идея</h3>
       <p>{algo.idea}</p>
 
-      <h3>Анимация</h3>
+      <h3>Визуализация</h3>
       <div className="algo__animation">
         <img src={algo.animation} alt={algo.title} />
       </div>
