@@ -3,9 +3,13 @@ import { useParams, Link } from "react-router-dom";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 import { flatAlgorithms } from "../data/categories";
 import { useLoader } from "../context/LoaderContext"
+import { animationGenerators } from "../animation/animationGenerators";
+
 import NotFound from "./NotFound";
+import AnimationPlayer from "../components/AnimationPlayer";
 
 export default function AlgorithmPage() {
   const { id } = useParams();
@@ -23,6 +27,7 @@ export default function AlgorithmPage() {
   if (!algo) return <NotFound />;
 
   const codeForLang = algo.code?.[language] || algo.pseudocode || "";
+  const animationGenerator = animationGenerators[id];
 
   return (
     <main className="main">
@@ -36,11 +41,20 @@ export default function AlgorithmPage() {
       <p>{algo.description}</p>
 
       <h3>Идея</h3>
-      <p>{algo.idea}</p>
+      {Array.isArray(algo.idea) ? (
+        <ol className="algo__idea">
+          {algo.idea.map((step, idx) => (
+            <li key={idx}>{step}</li>
+          ))}
+        </ol>
+      ) : (
+        <p>{algo.idea}</p>
+      )}
+
 
       <h3>Визуализация</h3>
       <div className="algo__animation">
-        <img src={algo.animation} alt={algo.title} />
+            <AnimationPlayer animationGenerator={animationGenerator} />
       </div>
 
       {codeForLang && (
