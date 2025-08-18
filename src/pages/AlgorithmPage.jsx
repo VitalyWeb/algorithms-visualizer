@@ -42,13 +42,24 @@ export default function AlgorithmPage() {
       <h3>Описание</h3>
       <p>{algo.description}</p>
 
+      <h3>Когда использовать</h3>
+      {Array.isArray(algo.using) ? (
+        <ul className="algo__list-custom">
+          {algo.using.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>{algo.using}</p>
+      )}
+
       <h3>Идея</h3>
       {Array.isArray(algo.idea) ? (
-        <ol className="algo__idea">
-          {algo.idea.map((step, idx) => (
-            <li key={idx}>{step}</li>
+        <ul className="algo__list-custom">
+          {algo.idea.map((step, index) => (
+            <li key={index}>{step}</li>
           ))}
-        </ol>
+        </ul>
       ) : (
         <p>{algo.idea}</p>
       )}
@@ -56,11 +67,11 @@ export default function AlgorithmPage() {
 
       <h3>Визуализация</h3>
       <div className="algo__animation">
-            <AnimationPlayer animationGenerator={animationGenerator} showArraySizeControls={showArraySizeControls} />
+        <AnimationPlayer animationGenerator={animationGenerator} showArraySizeControls={showArraySizeControls} />
       </div>
 
       {codeForLang && (
-        <>
+        <div className="algo__code">
           <h3>Код</h3>
 
           <div className="code-tabs">
@@ -91,9 +102,8 @@ export default function AlgorithmPage() {
           >
             {codeForLang}
           </SyntaxHighlighter>
-        </>
+        </div>
       )}
-
       <h3>Сложность</h3>
       <table className="algo__table">
         <thead>

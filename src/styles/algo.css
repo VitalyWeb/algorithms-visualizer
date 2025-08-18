@@ -76,3 +76,20 @@
   color: #fff;
   border-color: #1abc9c;
 }
+
+.algo__list-custom {
+  list-style: none;
+}
+
+.algo__list-custom li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+}
+
+.algo__list-custom li::before {
+  content: "◍";
+  position: absolute;
+  left: 0;
+  color: #000;
+}

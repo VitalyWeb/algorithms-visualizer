@@ -24,11 +24,11 @@ import { bellmanFordGenerator } from "../animation/graph/bellman-ford-generator"
 import { floydWarshallGenerator } from "../animation/graph/floyd-warshall-generator";
 import { primGenerator } from "../animation/graph/prim-generator";
 
-// // Tree import
-// import { inOrderTraversalGenerator } from "./tree/in-order-traversal-generator";
-// import { preOrderTraversalGenerator } from "./tree/pre-order-traversal-generator";
-// import { postOrderTraversalGenerator } from "./tree/post-order-traversal-generator";
-// import { bstSearchGenerator } from "./tree/bst-search-generator";
+// Tree import
+import { inOrderTraversalGenerator } from "../animation/tree/in-order-traversal-generator";
+import { preOrderTraversalGenerator } from "../animation/tree/pre-order-traversal-generator";
+import { postOrderTraversalGenerator } from "../animation/tree/post-order-traversal-generator";
+import { bstSearchGenerator } from "../animation/tree/bst-search-generator";
 
 // // Numeric import
 // import { gcdGenerator } from "./numeric/gcd-generator";
@@ -64,11 +64,11 @@ export const animationGenerators = {
   "floyd-warshall": floydWarshallGenerator,
   "prim": primGenerator,
 
-  // // tree
-  // "in-order": inOrderTraversalGenerator,
-  // "pre-order": preOrderTraversalGenerator,
-  // "post-order": postOrderTraversalGenerator,
-  // "bst-search": bstSearchGenerator,
+  // tree
+  "in-order": inOrderTraversalGenerator,
+  "pre-order": preOrderTraversalGenerator,
+  "post-order": postOrderTraversalGenerator,
+  "bst-search": bstSearchGenerator,
 
   // // numeric
   // "gcd": gcdGenerator,

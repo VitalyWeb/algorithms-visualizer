@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
 import { drawSearch } from "../animation/logic-draw/search-logic"
 import { drawGraph } from "../animation/logic-draw/graph-logic";
+import {} from "../animation/logic-draw/tree-logic";
+
 import { generateRandomArray } from "../utils/generate-random-array";
 import {setupCanvas} from "../utils/setup-canvas"
 
@@ -132,23 +134,23 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
               />
             </label>
         )}
+        <div className="buttons-controls">
         <button onClick={handleRegenerate} className="btn replace">
             <i className="fas fa-sync-alt"></i>Заменить
         </button>
+
         <button onClick={handleStepBackward} disabled={currentStepIndex <= 0} className="btn">
           <i className="fas fa-arrow-left"></i>Назад
         </button>
 
-        <button
-          onClick={handleStepForward}
-          disabled={currentStepIndex >= steps.length - 1}
-          className="btn">
+        <button onClick={handleStepForward} disabled={currentStepIndex >= steps.length - 1} className="btn">
           Вперед<i className="fas fa-arrow-right"></i>
         </button>
 
         <button onClick={handleRestart} className="btn restart">
           <i className="fas fa-redo"></i>Заново
         </button>
+        </div>
       </div>
     </div>
   );
