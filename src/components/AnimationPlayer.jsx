@@ -2,7 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
 import { drawSearch } from "../animation/logic-draw/search-logic"
 import { drawBfs } from "../animation/logic-draw/graph-logic";
-import { generateRandomArray } from "../animation/generateRandomArray";
+import { generateRandomArray } from "../utils/generate-random-array";
+import {setupCanvas} from "../utils/setup-canvas"
 
 const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
   const canvasRef = useRef(null);
@@ -18,18 +19,21 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    setupCanvas(canvas, ctx);
+
     const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
+    const width = rect.width;
+    const height = rect.height;
 
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
-
-    if (state.array && state.target !== undefined) drawSearch(ctx, rect.width, rect.height, state);
-    else if (state.array) drawSort(ctx, rect.width, rect.height, state);
-    else if (state.graph) drawBfs(ctx, canvas, state);
+    if (state.array && state.target !== undefined) {
+      drawSearch(ctx, width, height, state);
+    } 
+    else if (state.array) {
+      drawSort(ctx, width, height, state);
+    } 
+    else if (state.graph) {
+      drawBfs(ctx, { width, height }, state);
+    }
   };
 
   useEffect(() => {

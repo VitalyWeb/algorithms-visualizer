@@ -28,7 +28,8 @@ export function* interpolationSearchGenerator(initialArray) {
 
         if (arr[pos] < target) {
             low = pos + 1;
-        } else {
+        } 
+        else {
             high = pos - 1;
         }
     }

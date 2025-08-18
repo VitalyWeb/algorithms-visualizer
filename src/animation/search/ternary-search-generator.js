@@ -14,7 +14,8 @@ export function* ternarySearchGenerator(initialArray) {
         if (high - low < 2) {
             if (arr[low] === target) {
                 yield { array: [...arr], target, low: -1, high: -1, searchIndex1: -1, searchIndex2: -1, foundIndex: low };
-            } else if (arr[high] === target) {
+            } 
+            else if (arr[high] === target) {
                 yield { array: [...arr], target, low: -1, high: -1, searchIndex1: -1, searchIndex2: -1, foundIndex: high };
             }
             break;
@@ -37,9 +38,11 @@ export function* ternarySearchGenerator(initialArray) {
 
         if (target < arr[mid1]) {
             high = mid1 - 1;
-        } else if (target > arr[mid2]) {
+        } 
+        else if (target > arr[mid2]) {
             low = mid2 + 1;
-        } else {
+        } 
+        else {
             low = mid1 + 1;
             high = mid2 - 1;
         }

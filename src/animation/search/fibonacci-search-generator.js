@@ -29,11 +29,13 @@ export function* fibonacciSearchGenerator(initialArray) {
             fibM1 = fibM2;
             fibM2 = fibM - fibM1;
             offset = i;
-        } else if (arr[i] > target) {
+        } 
+        else if (arr[i] > target) {
             fibM = fibM2;
             fibM1 = fibM1 - fibM2;
             fibM2 = fibM - fibM1;
-        } else {
+        } 
+        else {
             yield { array: [...arr], target, low: -1, high: -1, searchIndex: -1, foundIndex: i, fib: [fibM2, fibM1, fibM] };
             return;
         }
@@ -41,7 +43,8 @@ export function* fibonacciSearchGenerator(initialArray) {
 
     if (fibM1 && arr[offset + 1] === target) {
         yield { array: [...arr], target, low: -1, high: -1, searchIndex: -1, foundIndex: offset + 1, fib: [fibM2, fibM1, fibM] };
-    } else {
+    } 
+    else {
         yield { array: [...arr], target, low: -1, high: -1, searchIndex: -1, foundIndex: -1, fib: [fibM2, fibM1, fibM] };
     }
 }

@@ -31,9 +31,11 @@ export function* exponentialSearchGenerator(initialArray) {
         if (arr[mid] === target) {
             yield { array: [...arr], target, low, high, searchIndex: -1, foundIndex: mid, step: "found" };
             return;
-        } else if (arr[mid] < target) {
+        } 
+        else if (arr[mid] < target) {
             low = mid + 1;
-        } else {
+        } 
+        else {
             high = mid - 1;
         }
     }

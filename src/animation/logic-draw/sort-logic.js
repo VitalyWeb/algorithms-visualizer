@@ -10,10 +10,18 @@ export const drawSort = (ctx, width, height, state) => {
         const y = height - barHeight;
 
         let color = '#ccc';
-        if (state.sorted.includes(i)) color = 'green';
-        else if (i === state.pivot) color = 'orange';
-        else if (state.swapping.includes(i)) color = 'red';
-        else if (i >= state.low && i <= state.high) color = 'skyblue';
+        if (state.sorted.includes(i))  {
+            color = 'green';
+        } 
+        else if (i === state.pivot) {
+            color = 'orange';
+        } 
+        else if (state.swapping.includes(i)) {
+            color = 'red';
+        } 
+        else if (i >= state.low && i <= state.high) {
+            color = 'skyblue';
+        } 
 
         ctx.fillStyle = color;
         ctx.fillRect(x, y, barWidth - 2, barHeight);

@@ -1,29 +1,29 @@
 // Sort import
-import { quickSortGenerator } from "./sort/quick-sort-generator";
-import { timSortGenerator } from "./sort/tim-sort-generator";
-import { introSortGenerator } from "./sort/intro-sort-generator";
-import { radixSortGenerator } from "./sort/radix-sort-generator";
-import { countingSortGenerator } from "./sort/counting-sort-generator";
-import { mergeSortGenerator } from "./sort/merge-sort-generator";
-import { bucketSortGenerator } from "./sort/bucket-sort-generator";
+import { quickSortGenerator } from "../animation/sort/quick-sort-generator";
+import { timSortGenerator } from "../animation/sort/tim-sort-generator";
+import { introSortGenerator } from "../animation/sort/intro-sort-generator";
+import { radixSortGenerator } from "../animation/sort/radix-sort-generator";
+import { countingSortGenerator } from "../animation/sort/counting-sort-generator";
+import { mergeSortGenerator } from "../animation/sort/merge-sort-generator";
+import { bucketSortGenerator } from "../animation/sort/bucket-sort-generator";
 
 // Search import
-import { linearSearchGenerator } from "./search/linear-search-generator";
-import { binarySearchGenerator } from "./search/binary-search-generator";
-import { interpolationSearchGenerator } from "./search/interpolation-search-generator";
-import { exponentialSearchGenerator } from "./search/exponential-search-generator";
-import { ternarySearchGenerator } from "./search/ternary-search-generator";
-import { jumpSearchGenerator } from "./search/jump-search-generator";
-import { fibonacciSearchGenerator } from "./search/fibonacci-search-generator";
+import { linearSearchGenerator } from "../animation/search/linear-search-generator";
+import { binarySearchGenerator } from "../animation/search/binary-search-generator";
+import { interpolationSearchGenerator } from "../animation/search/interpolation-search-generator";
+import { exponentialSearchGenerator } from "../animation/search/exponential-search-generator";
+import { ternarySearchGenerator } from "../animation/search/ternary-search-generator";
+import { jumpSearchGenerator } from "../animation/search/jump-search-generator";
+import { fibonacciSearchGenerator } from "../animation/search/fibonacci-search-generator";
 
 // Graph import
-import { bfsGenerator } from "./graph/bfs-generator";
-import { dfsGenerator } from "./graph/dfs-generator";
-import { dijkstraGenerator } from "./graph/dijkstra-generator";
-import { bellmanFordGenerator } from "./graph/bellman-ford-generator";
-import { floydWarshallGenerator } from "./graph/floyd-warshall-generator";
-import { kruskalGenerator } from "./graph/kruskal-generator";
-import { primGenerator } from "./graph/prim-generator";
+import { bfsGenerator } from "../animation/graph/bfs-generator";
+import { dfsGenerator } from "../animation/graph/dfs-generator";
+import { dijkstraGenerator } from "../animation/graph/dijkstra-generator";
+import { bellmanFordGenerator } from "../animation/graph/bellman-ford-generator";
+import { floydWarshallGenerator } from "../animation/graph/floyd-warshall-generator";
+import { kruskalGenerator } from "../animation/graph/kruskal-generator";
+import { primGenerator } from "../animation/graph/prim-generator";
 
 // // Tree import
 // import { inOrderTraversalGenerator } from "./tree/in-order-traversal-generator";

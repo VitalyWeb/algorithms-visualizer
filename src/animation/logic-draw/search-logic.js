@@ -10,10 +10,18 @@ export const drawSearch = (ctx, width, height, state) => {
         const y = height - barHeight;
 
         let color = '#ccc';
-        if (i === state.foundIndex) color = 'green';
-        else if (i === state.searchIndex) color = 'red';
-        else if (state.step === "exponential" && i < state.searchIndex) color = 'orange';
-        else if (state.low !== -1 && i >= state.low && i <= state.high) color = 'skyblue';
+        if (i === state.foundIndex) {
+            color = 'green';
+        } 
+        else if (i === state.searchIndex) {
+            color = 'red';
+        } 
+        else if (state.step === "exponential" && i < state.searchIndex) {
+            color = 'orange';
+        } 
+        else if (state.low !== -1 && i >= state.low && i <= state.high) {
+            color = 'skyblue';
+        } 
 
         ctx.fillStyle = color;
         ctx.fillRect(x, y, barWidth - 2, barHeight);

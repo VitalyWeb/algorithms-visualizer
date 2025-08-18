@@ -14,9 +14,11 @@ function* _introSort(arr, low, high, depthLimit) {
 
     if (high - low + 1 <= sizeThreshold) {
         yield* insertionSort(arr, low, high);
-    } else if (depthLimit === 0) {
+    } 
+    else if (depthLimit === 0) {
         yield* heapSort(arr, low, high);
-    } else if (low < high) {
+    } 
+    else if (low < high) {
         const partitionIndex = yield* partition(arr, low, high);
         yield* _introSort(arr, low, partitionIndex - 1, depthLimit - 1);
         yield* _introSort(arr, partitionIndex + 1, high, depthLimit - 1);

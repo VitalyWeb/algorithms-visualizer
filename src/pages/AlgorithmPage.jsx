@@ -6,7 +6,7 @@ import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { flatAlgorithms } from "../data/categories";
 import { useLoader } from "../context/LoaderContext"
-import { animationGenerators } from "../animation/animationGenerators";
+import { animationGenerators } from "../utils/animation-generators";
 
 import NotFound from "./NotFound";
 import AnimationPlayer from "../components/AnimationPlayer";
