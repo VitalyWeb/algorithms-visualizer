@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
 import { drawSearch } from "../animation/logic-draw/search-logic"
-import { drawBfs } from "../animation/logic-draw/graph-logic";
+import { drawGraph } from "../animation/logic-draw/graph-logic";
 import { generateRandomArray } from "../utils/generate-random-array";
 import {setupCanvas} from "../utils/setup-canvas"
 
@@ -32,7 +32,7 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
       drawSort(ctx, width, height, state);
     } 
     else if (state.graph) {
-      drawBfs(ctx, { width, height }, state);
+      drawGraph(ctx, { width, height }, state);
     }
   };
 

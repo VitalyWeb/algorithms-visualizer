@@ -9,9 +9,7 @@ export function generateRandomGraph(minNodes = 4, maxNodes = 11) {
 
     for (let i = 1; i < numNodes; i++) {
         const node = nodes[i];
-        const randomNeighborIndex = Math.floor(Math.random() * i);
-        const neighbor = nodes[randomNeighborIndex];
-
+        const neighbor = nodes[Math.floor(Math.random() * i)];
         graph[node].push(neighbor);
         graph[neighbor].push(node);
     }
@@ -20,7 +18,6 @@ export function generateRandomGraph(minNodes = 4, maxNodes = 11) {
     for (let i = 0; i < additionalEdges; i++) {
         const node1 = nodes[Math.floor(Math.random() * numNodes)];
         const node2 = nodes[Math.floor(Math.random() * numNodes)];
-
         if (node1 !== node2 && !graph[node1].includes(node2)) {
             graph[node1].push(node2);
             graph[node2].push(node1);

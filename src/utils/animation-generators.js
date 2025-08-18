@@ -22,7 +22,6 @@ import { dfsGenerator } from "../animation/graph/dfs-generator";
 import { dijkstraGenerator } from "../animation/graph/dijkstra-generator";
 import { bellmanFordGenerator } from "../animation/graph/bellman-ford-generator";
 import { floydWarshallGenerator } from "../animation/graph/floyd-warshall-generator";
-import { kruskalGenerator } from "../animation/graph/kruskal-generator";
 import { primGenerator } from "../animation/graph/prim-generator";
 
 // // Tree import
@@ -63,7 +62,6 @@ export const animationGenerators = {
   "dijkstra": dijkstraGenerator,
   "bellman-ford": bellmanFordGenerator,
   "floyd-warshall": floydWarshallGenerator,
-  "kruskal": kruskalGenerator,
   "prim": primGenerator,
 
   // // tree
