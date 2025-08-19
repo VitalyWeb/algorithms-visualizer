@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vs } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { flatAlgorithms } from "../data/categories";
 import { useLoader } from "../context/LoaderContext"
@@ -97,7 +97,7 @@ export default function AlgorithmPage() {
 
           <SyntaxHighlighter
             language={language}
-            style={tomorrow}
+            style={vs}
             showLineNumbers
           >
             {codeForLang}

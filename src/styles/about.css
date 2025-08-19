@@ -1,9 +1,14 @@
-.about {
-    padding: 0 20px;
-}
-
 .about__title {
     margin-bottom: 16px;
+}
+
+.about {
+    background: #f9f9f9;
+    white-space: pre-line;
+    padding: 1rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .about__subtitle {
@@ -59,6 +64,10 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.tech__button {
+    color: black;
+}
+
 .contact__button--email {
     background-color: #D44638;
 }
@@ -77,12 +86,10 @@
 
 .tech__button--react {
     background-color: #61dafb;
-    color: #000;
 }
 
 .tech__button--js {
     background-color: #f7df1e;
-    color: #000;
 }
 
 .tech__button--css {

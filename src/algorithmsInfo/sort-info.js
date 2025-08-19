@@ -779,13 +779,11 @@ export const codeBucketSort = {
     const bucketCount = Math.floor((max - min) / bucketSize) + 1;
     const buckets = Array.from({ length: bucketCount }, () => []);
 
-    // Размещение элементов по корзинам
     for (let num of arr) {
         const index = Math.floor((num - min) / bucketSize);
         buckets[index].push(num);
     }
 
-    // Сортировка каждой корзины и объединение
     return buckets.reduce((acc, bucket) => {
         bucket.sort((a, b) => a - b);
         return acc.concat(bucket);

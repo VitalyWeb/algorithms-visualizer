@@ -345,7 +345,6 @@ export const codeBellmanFord = {
                 if distances[node] != float('infinity') and distances[node] + weight < distances[neighbor]:
                     distances[neighbor] = distances[node] + weight
 
-    # Проверка на отрицательные циклы
     for node in graph:
         for neighbor, weight in graph[node].items():
             if distances[node] != float('infinity') and distances[node] + weight < distances[neighbor]:
@@ -360,7 +359,6 @@ using namespace std;
 
 const int INF = 1e9;
 
-// Структура для представления ребра
 struct Edge {
     int from, to, weight;
 };
@@ -369,7 +367,6 @@ pair<vector<int>, bool> bellmanFord(int n, const vector<Edge>& edges, int startN
     vector<int> distances(n, INF);
     distances[startNode] = 0;
 
-    // Релаксация V-1 раз
     for (int i = 0; i < n - 1; ++i) {
         for (const auto& edge : edges) {
             if (distances[edge.from] != INF && distances[edge.from] + edge.weight < distances[edge.to]) {
@@ -378,10 +375,9 @@ pair<vector<int>, bool> bellmanFord(int n, const vector<Edge>& edges, int startN
         }
     }
 
-    // Проверка на отрицательные циклы
     for (const auto& edge : edges) {
         if (distances[edge.from] != INF && distances[edge.from] + edge.weight < distances[edge.to]) {
-            return {distances, false}; // Найден отрицательный цикл
+            return {distances, false};
         }
     }
 
@@ -568,12 +564,10 @@ def prim(graph):
 
 using namespace std;
 
-// Структура для представления ребра в остовном дереве
 struct Edge {
     int from, to, weight;
 };
 
-// Сравнение для приоритетной очереди
 struct CompareEdge {
     bool operator()(const Edge& a, const Edge& b) {
         return a.weight > b.weight;
