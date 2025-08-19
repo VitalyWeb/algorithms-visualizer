@@ -1,6 +1,58 @@
 .footer {
-  background-color: #fff;
-  padding: 2rem;
-  text-align: center;
-  border-top: 1px solid #eee;
+  padding: 20px 0;
+  font-size: 14px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer__left {
+  margin-bottom: 10px;
+}
+
+.footer__right {
+  display: flex;
+  gap: 15px;
+}
+
+.footer__icon {
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer__icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footer__icon.github {
+  background-color: #333;
+  color: #fff;
+}
+
+.footer__icon.telegram {
+  background-color: #0088cc;
+  color: #fff;
+}
+
+.footer__icon.email {
+  background-color: #D44638;
+  color: #fff;
 }

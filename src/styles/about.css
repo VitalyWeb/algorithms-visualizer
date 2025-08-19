@@ -1,0 +1,118 @@
+.about {
+    padding: 0 20px;
+}
+
+.about__title {
+    margin-bottom: 16px;
+}
+
+.about__subtitle {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.about__description {
+    margin-bottom: 12px;
+}
+
+.about__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.about__list-item::before {
+    content: '◍';
+    display: inline-block;
+    margin-right: 8px;
+    color: black;
+}
+
+.contact,
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.contact__button,
+.tech__button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact__icon,
+.tech__icon {
+    font-size: 18px;
+}
+
+.contact__button:hover,
+.tech__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact__button--email {
+    background-color: #D44638;
+}
+
+.contact__button--email:hover {
+    background-color: #C23321;
+}
+
+.contact__button--telegram {
+    background-color: #0088cc;
+}
+
+.contact__button--telegram:hover {
+    background-color: #006699;
+}
+
+.contact__button--github {
+    background-color: #333;
+}
+
+.contact__button--github:hover {
+    background-color: #555;
+}
+
+.tech__button--react {
+    background-color: #61dafb;
+    color: #000;
+}
+
+.tech__button--js {
+    background-color: #f7df1e;
+    color: #000;
+}
+
+.tech__button--css {
+    background-color: #2965f1;
+}
+
+.tech__button--html {
+    background-color: #e34c26;
+}
+
+.tech__button--canvas {
+    background-color: #8e44ad;
+}
+
+.tech__button--git {
+    background-color: #f05032;
+}
+
+.tech__button--context {
+    background-color: #2ecc71;
+}
+
+.tech__button--responsive {
+    background-color: #3498db;
+}

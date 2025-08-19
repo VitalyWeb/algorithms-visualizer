@@ -25,6 +25,15 @@
   .algo__animation {
     padding-bottom: 2rem;
   }
+
+  .footer__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__right {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -38,5 +47,10 @@
   .buttons-controls .btn {
     width: 100%;
     max-width: 100px;
+  }
+
+  .contact,
+  .tech {
+    flex-direction: column;
   }
 }
