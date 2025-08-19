@@ -52,9 +52,11 @@ function drawHeader(ctx, width, config, state) {
     ctx.font = `${config.descSize}px Arial`;
     if (state.mst) {
         ctx.fillText("🔴-текущий, 🟡-в очереди, 🟢-посещен", width / 2, config.descPosY);
-    } else if (state.iterationK) {
+    } 
+    else if (state.iterationK) {
         ctx.fillText("🔴-k (промежуточный),🔵-i (источник),🟡-j (назначение)", width / 2, config.descPosY);
-    } else {
+    } 
+    else {
         ctx.fillText("🔴-текущий,🔵-обновляется,🟡-необработан,🟢-обработан", width / 2, config.descPosY);
     }
 }
@@ -85,7 +87,8 @@ function drawEdges(ctx, width, height, state, nodePositions, config) {
             if (isMstEdge) {
                 ctx.strokeStyle = "#4ade80";
                 ctx.lineWidth = 4;
-            } else {
+            } 
+            else {
                 ctx.strokeStyle = "#999";
                 ctx.lineWidth = 2;
             }
@@ -121,8 +124,27 @@ function drawNodes(ctx, width, height, state, nodePositions, config, isMobile) {
         const y = nodePositions[node].y * height;
 
         let color = "#ccc";
-        if (state.current === node){
-             color = "#ef4444"; 
+
+        if (state.status === 'iterating') {
+            if (node === state.iterationK) {
+                color = "#ef4444";
+            } 
+            else if (node === state.currentI) {
+                color = "#2563eb";
+            } 
+            else if (node === state.currentJ) {
+                color = "#fde047";
+            } 
+            else {
+                color = "#4ade80";
+            }
+        } 
+        else if (state.status === 'finished') {
+            color = "#4ade80";
+        }
+
+        else if (state.current === node){
+            color = "#ef4444"; 
         } 
         else if ((state.queue && state.queue.includes(node)) || (state.stack && state.stack.includes(node)) || (state.mst && !visited.has(node))) {
             color = "#fde047";
@@ -130,6 +152,7 @@ function drawNodes(ctx, width, height, state, nodePositions, config, isMobile) {
         else if (visited.has(node) || (state.status === 'finished' && state.distances && state.distances[node] !== Infinity) || (state.mst && visited.has(node))) {
             color = "#4ade80";
         }
+
 
         ctx.fillStyle = color;
         ctx.beginPath();
@@ -167,7 +190,8 @@ export const drawGraph = (ctx, { width, height }, state) => {
 
     if (state.status === 'finished' && state.iterationK) {
         drawDistanceMatrix(ctx, { width, height }, state);
-    } else {
+    } 
+    else {
         drawHeader(ctx, width, config, state);
         drawEdges(ctx, width, height, state, nodePositions, config);
         drawNodes(ctx, width, height, state, nodePositions, config, isMobile);

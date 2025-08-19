@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
 import { drawSearch } from "../animation/logic-draw/search-logic";
 import { drawGraph } from "../animation/logic-draw/graph-logic";
-import { } from "../animation/logic-draw/tree-logic";
+import { drawTree } from "../animation/logic-draw/tree-logic";
 
 import { generateRandomArray } from "../utils/generate-random-array";
 import { setupCanvas } from "../utils/setup-canvas";
@@ -32,10 +32,15 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
 
     if (state.array && state.target !== undefined) {
       drawSearch(ctx, width, height, state);
-    } else if (state.array) {
+    } 
+    else if (state.array) {
       drawSort(ctx, width, height, state);
-    } else if (state.graph) {
+    } 
+    else if (state.graph) {
       drawGraph(ctx, { width, height }, state);
+    }
+    else if (state.tree) {
+      drawTree(ctx, { width, height }, state);
     }
   };
 
