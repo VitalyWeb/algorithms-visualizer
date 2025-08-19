@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useReducer } from "react";
 import { drawSort } from "../animation/logic-draw/sort-logic";
 import { drawSearch } from "../animation/logic-draw/search-logic";
 import { drawGraph } from "../animation/logic-draw/graph-logic";
@@ -7,18 +7,72 @@ import { drawTree } from "../animation/logic-draw/tree-logic";
 import { generateRandomArray } from "../utils/generate-random-array";
 import { setupCanvas } from "../utils/setup-canvas";
 
+const ACTIONS = {
+  SET_STEPS: "SET_STEPS",
+  STEP_FORWARD: "STEP_FORWARD",
+  STEP_BACKWARD: "STEP_BACKWARD",
+  RESTART: "RESTART",
+  REGENERATE: "REGENERATE",
+  PLAY: "PLAY",
+  STOP: "STOP",
+  SET_ARRAY_SIZE: "SET_ARRAY_SIZE",
+};
+
+const initialState = {
+  steps: [],
+  currentStepIndex: -1,
+  arraySize: 20,
+  animationKey: 0,
+  isPlaying: false,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.SET_STEPS:
+      return { ...state, steps: action.payload, currentStepIndex: 0 };
+
+    case ACTIONS.STEP_FORWARD:
+      return {
+        ...state,
+        currentStepIndex: Math.min(state.currentStepIndex + 1, state.steps.length - 1),
+      };
+
+    case ACTIONS.STEP_BACKWARD:
+      return {
+        ...state,
+        currentStepIndex: Math.max(state.currentStepIndex - 1, 0),
+      };
+
+    case ACTIONS.RESTART:
+      return { ...state, currentStepIndex: 0, isPlaying: false };
+
+    case ACTIONS.REGENERATE:
+      return { ...state, animationKey: state.animationKey + 1, isPlaying: false };
+
+    case ACTIONS.PLAY:
+      return { ...state, isPlaying: true };
+
+    case ACTIONS.STOP:
+      return { ...state, isPlaying: false };
+
+    case ACTIONS.SET_ARRAY_SIZE:
+      return { ...state, arraySize: action.payload };
+
+    default:
+      return state;
+  }
+}
+
 const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const intervalRef = useRef(null);
 
-  const [steps, setSteps] = useState([]);
-  const [currentStepIndex, setCurrentStepIndex] = useState(-1);
-  const [arraySize, setArraySize] = useState(20);
-  const [animationKey, setAnimationKey] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const draw = (state) => {
+  const { steps, currentStepIndex, arraySize, animationKey, isPlaying } = state;
+
+  const draw = (drawState) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -30,17 +84,14 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
     const width = rect.width;
     const height = rect.height;
 
-    if (state.array && state.target !== undefined) {
-      drawSearch(ctx, width, height, state);
-    } 
-    else if (state.array) {
-      drawSort(ctx, width, height, state);
-    } 
-    else if (state.graph) {
-      drawGraph(ctx, { width, height }, state);
-    }
-    else if (state.tree) {
-      drawTree(ctx, { width, height }, state);
+    if (drawState.array && drawState.target !== undefined) {
+      drawSearch(ctx, width, height, drawState);
+    } else if (drawState.array) {
+      drawSort(ctx, width, height, drawState);
+    } else if (drawState.graph) {
+      drawGraph(ctx, { width, height }, drawState);
+    } else if (drawState.tree) {
+      drawTree(ctx, { width, height }, drawState);
     }
   };
 
@@ -54,8 +105,7 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
       allSteps.push(result.value);
       result = gen.next();
     }
-    setSteps(allSteps);
-    setCurrentStepIndex(0);
+    dispatch({ type: ACTIONS.SET_STEPS, payload: allSteps });
   }, [animationGenerator, arraySize, animationKey]);
 
   useEffect(() => {
@@ -100,49 +150,28 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
     };
   }, [steps, currentStepIndex]);
 
-  const handleStepForward = () => {
-    setCurrentStepIndex((prev) => {
-      if (prev < steps.length - 1) {
-        return prev + 1;
-      } else {
-        stopPlaying();
-        return prev;
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        dispatch({ type: ACTIONS.STEP_FORWARD });
+      }, 700);
+    } else {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
       }
-    });
-  };
-
-  const handleStepBackward = () => {
-    if (currentStepIndex > 0) setCurrentStepIndex((prev) => prev - 1);
-  };
-
-  const handleRestart = () => {
-    stopPlaying();
-    setCurrentStepIndex(0);
-  };
-
-  const handleRegenerate = () => {
-    stopPlaying();
-    setAnimationKey((prevKey) => prevKey + 1);
-  };
-
-  const startPlaying = () => {
-    if (!isPlaying) {
-      setIsPlaying(true);
-      intervalRef.current = setInterval(handleStepForward, 700);
     }
-  };
-
-  const stopPlaying = () => {
-    setIsPlaying(false);
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isPlaying]);
 
   return (
     <div className="animation-player" ref={containerRef}>
-      <canvas ref={canvasRef} className="canvas"/>
+      <canvas ref={canvasRef} className="canvas" />
 
       <div className="controls">
         {showArraySizeControls && (
@@ -151,7 +180,9 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
             <input
               type="number"
               value={arraySize}
-              onChange={(e) => setArraySize(Number(e.target.value))}
+              onChange={(e) =>
+                dispatch({ type: ACTIONS.SET_ARRAY_SIZE, payload: Number(e.target.value) })
+              }
               min="5"
               max="100"
             />
@@ -159,26 +190,26 @@ const AnimationPlayer = ({ animationGenerator, showArraySizeControls }) => {
         )}
 
         <div className="buttons-controls">
-          <button onClick={handleRegenerate} className="btn replace">
+          <button onClick={() => dispatch({ type: ACTIONS.REGENERATE })} className="btn replace">
             <i className="fas fa-sync-alt"></i>Заменить
           </button>
 
-          <button onClick={handleStepBackward} disabled={currentStepIndex <= 0} className="btn">
+          <button onClick={() => dispatch({ type: ACTIONS.STEP_BACKWARD })} disabled={currentStepIndex <= 0} className="btn">
             <i className="fas fa-arrow-left"></i>Назад
           </button>
 
-          <button onClick={handleStepForward} disabled={currentStepIndex >= steps.length - 1} className="btn">
+          <button onClick={() => dispatch({ type: ACTIONS.STEP_FORWARD })} disabled={currentStepIndex >= steps.length - 1} className="btn">
             Вперед<i className="fas fa-arrow-right"></i>
           </button>
 
-          <button onClick={handleRestart} className="btn restart">
+          <button onClick={() => dispatch({ type: ACTIONS.RESTART })} className="btn restart">
             <i className="fas fa-redo"></i>Заново
           </button>
 
-          <button onClick={startPlaying} disabled={isPlaying} className="btn play">
+          <button onClick={() => dispatch({ type: ACTIONS.PLAY })} disabled={isPlaying} className="btn play">
             <i className="fas fa-play"></i>Старт
           </button>
-          <button onClick={stopPlaying} disabled={!isPlaying} className="btn stop">
+          <button onClick={() => dispatch({ type: ACTIONS.STOP })} disabled={!isPlaying} className="btn stop">
             <i className="fas fa-pause"></i>Стоп
           </button>
         </div>

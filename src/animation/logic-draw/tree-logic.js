@@ -76,7 +76,6 @@ const drawHeader = (ctx, { width, height }, state, isMobile) => {
 
     ctx.fillText(headerText, width / 2, config.headerPosY);
 
-    // Дополнительный текст для легенды
     ctx.font = `${config.descSize}px Arial`;
     if (state.tree && state.target) {
         ctx.fillText("🔴-текущий, 🟡-посещен, 🟢-найден", width / 2, config.descPosY);
