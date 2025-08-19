@@ -15,7 +15,7 @@ export default function App() {
   return (
     <LoaderProvider>
     <SearchProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/algorithms-visualizer">
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
