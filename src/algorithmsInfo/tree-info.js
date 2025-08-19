@@ -1,4 +1,3 @@
-// Обход дерева In-order (In-order Traversal)
 export const descriptionInOrder = "Обход In-order — это алгоритм обхода дерева, при котором сначала посещается левое поддерево, затем корневой узел, а после — правое поддерево. Этот метод используется для получения отсортированного списка элементов в бинарном дереве поиска (BST).";
 
 export const usingInOrder = [
@@ -47,7 +46,6 @@ void inorderTraversal(Node* node) {
 }`
 };
 
-// Обход дерева Pre-order (Pre-order Traversal)
 export const descriptionPreOrder = "Обход Pre-order — это алгоритм обхода дерева, при котором сначала посещается корневой узел, затем левое поддерево, а после — правое поддерево. Этот метод часто используется для создания копии дерева или для построения префиксного выражения.";
 
 export const usingPreOrder = [
@@ -97,7 +95,6 @@ void preorderTraversal(Node* node) {
 }`
 };
 
-// Обход дерева Post-order (Post-order Traversal)
 export const descriptionPostOrder = "Обход Post-order — это алгоритм обхода дерева, при котором сначала посещается левое поддерево, затем правое поддерево, а после — корневой узел. Этот метод используется для удаления дерева, так как сначала удаляются дочерние узлы, а затем родительские.";
 
 export const usingPostOrder = [
@@ -147,7 +144,6 @@ void postorderTraversal(Node* node) {
 }`
 };
 
-// Поиск в бинарном дереве поиска (Binary Search Tree Search)
 export const descriptionBinarySearchTree = "Поиск в бинарном дереве поиска (BST) — это эффективный алгоритм для нахождения элемента, основанный на свойстве BST: все узлы в левом поддереве имеют значения меньше, чем у родительского узла, а в правом — больше. Это позволяет отсекать половину дерева на каждом шаге, подобно бинарному поиску.";
 
 export const usingBinarySearchTree = [

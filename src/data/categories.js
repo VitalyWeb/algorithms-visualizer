@@ -1,7 +1,6 @@
 import sort from "../img/sortings-min.png";
 import search from "../img/search-min.png";
 import graph from "../img/graph-min.png";
-import numeric from "../img/numeric-min.png";
 import tree from "../img/tree-min.png";
 
 import * as Sort from "../algorithmsInfo/sort-info";
@@ -252,18 +251,6 @@ export const CATEGORIES = [
         complexity: {best: "O(log n)", average: "O(log n)", worst: "O(n)", space: "O(n)"}, 
         code: { javascript: Tree.codeBinarySearchTree.javascript, python: Tree.codeBinarySearchTree.javascript, cpp: Tree.codeBinarySearchTree.javascript } 
       },
-    ]
-  },
-  {
-    id: "numeric",
-    title: "Числовые алгоритмы",
-    image: numeric,
-    algorithms: [
-      { id: "gcd", title: "НОД (Евклид)", description: undefined, idea: undefined, complexity: {}, code: { javascript: undefined, python: undefined, cpp: undefined } },
-      { id: "lcm", title: "НОК", description: undefined, idea: undefined, complexity: {}, code: { javascript: undefined, python: undefined, cpp: undefined } },
-      { id: "fast-power", title: "Быстрое возведение в степень", description: undefined, idea: undefined, complexity: {}, code: { javascript: undefined, python: undefined, cpp: undefined } },
-      { id: "prime-check", title: "Проверка простых чисел", description: undefined, idea: undefined, complexity: {}, code: { javascript: undefined, python: undefined, cpp: undefined } },
-      { id: "factorial", title: "Факториал", description: undefined, idea: undefined, complexity: {}, code: { javascript: undefined, python: undefined, cpp: undefined } },
     ]
   },
 ];

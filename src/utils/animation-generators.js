@@ -30,13 +30,6 @@ import { preOrderTraversalGenerator } from "../animation/tree/pre-order-traversa
 import { postOrderTraversalGenerator } from "../animation/tree/post-order-traversal-generator";
 import { bstSearchGenerator } from "../animation/tree/bst-search-generator";
 
-// // Numeric import
-// import { gcdGenerator } from "./numeric/gcd-generator";
-// import { lcmGenerator } from "./numeric/lcm-generator";
-// import { fastPowerGenerator } from "./numeric/fast-power-generator";
-// import { primeCheckGenerator } from "./numeric/prime-check-generator";
-// import { factorialGenerator } from "./numeric/factorial-generator";
-
 export const animationGenerators = {
   // sort
   "quick-sort": quickSortGenerator,
@@ -69,11 +62,4 @@ export const animationGenerators = {
   "pre-order": preOrderTraversalGenerator,
   "post-order": postOrderTraversalGenerator,
   "bst-search": bstSearchGenerator,
-
-  // // numeric
-  // "gcd": gcdGenerator,
-  // "lcm": lcmGenerator,
-  // "fast-power": fastPowerGenerator,
-  // "prime-check": primeCheckGenerator,
-  // "factorial": factorialGenerator,
 };
