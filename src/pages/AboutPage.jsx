@@ -63,9 +63,6 @@ export default function AboutPage() {
         <a href="mailto:vilkoa2600@gmail.com" className="contact__button contact__button--email">
           <i className="fas fa-envelope contact__icon"></i> Почта
         </a>
-        <a href="https://t.me/zzuutt" target="_blank" rel="noopener noreferrer" className="contact__button contact__button--telegram">
-          <i className="fab fa-telegram contact__icon"></i> Telegram
-        </a>
         <a href="https://github.com/VitalyWeb/algorithms-visualizer" target="_blank" rel="noopener noreferrer" className="contact__button contact__button--github">
           <i className="fab fa-github contact__icon"></i> GitHub
         </a>

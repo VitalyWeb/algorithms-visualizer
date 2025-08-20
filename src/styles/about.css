@@ -67,14 +67,6 @@
     background-color: #C23321;
 }
 
-.contact__button--telegram {
-    background-color: #0088cc;
-}
-
-.contact__button--telegram:hover {
-    background-color: #006699;
-}
-
 .contact__button--github {
     background-color: #333;
 }

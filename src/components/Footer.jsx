@@ -9,9 +9,6 @@ export default function Footer() {
           <a href="https://github.com/VitalyWeb/algorithms-visualizer" target="_blank" rel="noopener noreferrer" className="footer__icon github">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://t.me/zzuutt" target="_blank" rel="noopener noreferrer" className="footer__icon telegram">
-            <i className="fab fa-telegram"></i>
-          </a>
           <a href="mailto:vilkoa2600@gmail.com" className="footer__icon email">
             <i className="fas fa-envelope"></i>
           </a>
