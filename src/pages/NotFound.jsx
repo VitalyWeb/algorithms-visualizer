@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import notFound from "../img/notFound-min.png";
+import notFound from "../img/notFound-min.webp";
 
 export default function NotFound({ text }) {
   return (

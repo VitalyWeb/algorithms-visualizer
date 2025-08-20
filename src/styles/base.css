@@ -32,8 +32,8 @@ body, html{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
+  margin-top: 2rem;
 }
-
 
 .main a {
   color: #1abc9c;

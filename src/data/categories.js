@@ -1,7 +1,7 @@
-import sort from "../img/sortings-min.png";
-import search from "../img/search-min.png";
-import graph from "../img/graph-min.png";
-import tree from "../img/tree-min.png";
+import sort from "../img/sortings-min.webp";
+import search from "../img/search-min.webp";
+import graph from "../img/graph-min.webp";
+import tree from "../img/tree-min.webp";
 
 import * as Sort from "../algorithmsInfo/sort-info";
 import * as Search from "../algorithmsInfo/search-info";
