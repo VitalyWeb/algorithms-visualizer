@@ -1,19 +1,25 @@
 {
   "files": {
     "main.css": "/algorithms-visualizer/static/css/main.d25a6e97.css",
-    "main.js": "/algorithms-visualizer/static/js/main.0ed6da8b.js",
-    "static/media/search-min.webp": "/algorithms-visualizer/static/media/search-min.b5c8adcb9d54fcf941f9.webp",
-    "static/media/tree-min.webp": "/algorithms-visualizer/static/media/tree-min.d52ee8aed436aaf7d342.webp",
-    "static/media/sortings-min.webp": "/algorithms-visualizer/static/media/sortings-min.268cd4223fb2f54776a7.webp",
-    "static/media/notFound-min.webp": "/algorithms-visualizer/static/media/notFound-min.e2220543bbb87ad39324.webp",
-    "static/media/logo-min.webp": "/algorithms-visualizer/static/media/logo-min.6b919c1a01c361f5614b.webp",
-    "static/media/graph-min.webp": "/algorithms-visualizer/static/media/graph-min.d30492e4dd5c68f6b142.webp",
+    "main.js": "/algorithms-visualizer/static/js/main.c1f0b093.js",
+    "static/media/notFound-min-720w.webp": "/algorithms-visualizer/static/media/notFound-min-720w.87aa2f707bb3c01bce3f.webp",
+    "static/media/notFound-min-360w.webp": "/algorithms-visualizer/static/media/notFound-min-360w.ebd00c70d973e4d9d6b3.webp",
+    "static/media/notFound-min-180w.webp": "/algorithms-visualizer/static/media/notFound-min-180w.58daf2cbad63fe3d60ac.webp",
+    "static/media/search-min-360w.webp": "/algorithms-visualizer/static/media/search-min-360w.072d2095691046514819.webp",
+    "static/media/logo-min-180w.webp": "/algorithms-visualizer/static/media/logo-min-180w.d8a5a690f2dae7d70ba0.webp",
+    "static/media/tree-min-360w.webp": "/algorithms-visualizer/static/media/tree-min-360w.396b76c26ab0eb99d81d.webp",
+    "static/media/search-min-180w.webp": "/algorithms-visualizer/static/media/search-min-180w.7212ce2480e054f6755e.webp",
+    "static/media/sortings-min-360w.webp": "/algorithms-visualizer/static/media/sortings-min-360w.ccc68deed6c50ade50f7.webp",
+    "static/media/tree-min-180w.webp": "/algorithms-visualizer/static/media/tree-min-180w.a46a95abc88224eb1bdc.webp",
+    "static/media/graph-min-360w.webp": "/algorithms-visualizer/static/media/graph-min-360w.8851a83ddda6fef7c289.webp",
     "index.html": "/algorithms-visualizer/index.html",
+    "static/media/sortings-min-180w.webp": "/algorithms-visualizer/static/media/sortings-min-180w.3ee467872d5f86054fa9.webp",
+    "static/media/graph-min-180w.webp": "/algorithms-visualizer/static/media/graph-min-180w.af372ae0ac655c1a1baa.webp",
     "main.d25a6e97.css.map": "/algorithms-visualizer/static/css/main.d25a6e97.css.map",
-    "main.0ed6da8b.js.map": "/algorithms-visualizer/static/js/main.0ed6da8b.js.map"
+    "main.c1f0b093.js.map": "/algorithms-visualizer/static/js/main.c1f0b093.js.map"
   },
   "entrypoints": [
     "static/css/main.d25a6e97.css",
-    "static/js/main.0ed6da8b.js"
+    "static/js/main.c1f0b093.js"
   ]
 }
