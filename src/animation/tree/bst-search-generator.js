@@ -1,7 +1,7 @@
 import * as Generate from "../../utils/generate-binary-tree";
 
 export function* bstSearchGenerator() {
-    const numNodes = 11;
+    const numNodes = 9;
     const randomNodes = Generate.getRandomNumbers(numNodes, 1, 99);
     const tree = Generate.createBST(randomNodes);
 
@@ -9,7 +9,6 @@ export function* bstSearchGenerator() {
         return;
     }
 
-    // Собираем все значения из дерева, чтобы выбрать существующее для поиска
     const allValues = [];
     const collectValues = (node) => {
         if (!node) return;

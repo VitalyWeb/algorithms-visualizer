@@ -30,26 +30,20 @@ const getTreeDepth = (node) => {
     return 1 + Math.max(getTreeDepth(node.left), getTreeDepth(node.right));
 };
 
-const getNodePositions = (tree, nodePositions, x, y, hSpacing, vSpacing, isMobile) => {
+const getNodePositions = (tree, nodePositions, xMin, xMax, y, vSpacing) => {
     if (!tree) return;
 
-    if (!nodePositions[tree.value]) {
-        nodePositions[tree.value] = { x, y };
-    }
+    const x = (xMin + xMax) / 2;
+    nodePositions[tree.value] = { x, y };
 
     if (tree.left) {
-        const childX = x - hSpacing;
-        const childY = y + vSpacing;
-        nodePositions[tree.left.value] = { x: childX, y: childY };
-        getNodePositions(tree.left, nodePositions, childX, childY, hSpacing / 2, vSpacing, isMobile);
+        getNodePositions(tree.left, nodePositions, xMin, x, y + vSpacing, vSpacing);
     }
     if (tree.right) {
-        const childX = x + hSpacing;
-        const childY = y + vSpacing;
-        nodePositions[tree.right.value] = { x: childX, y: childY };
-        getNodePositions(tree.right, nodePositions, childX, childY, hSpacing / 2, vSpacing, isMobile);
+        getNodePositions(tree.right, nodePositions, x, xMax, y + vSpacing, vSpacing);
     }
 };
+
 
 const drawHeader = (ctx, { width, height }, state, isMobile) => {
     const textConfig = {
@@ -87,16 +81,18 @@ const drawHeader = (ctx, { width, height }, state, isMobile) => {
 export const drawTree = (ctx, { width, height }, state) => {
     ctx.clearRect(0, 0, width, height);
     const isMobile = isMobileDevice();
-    const nodeRadius = isMobile ? 13 : 17;
-    const horizontalSpacing = isMobile ? 70 : 160;
+    const nodeRadius = isMobile ? 11 : 17;
 
     const tree = state.tree;
     const nodePositions = {};
-    if (tree) {
-        const depth = getTreeDepth(tree);
-        const verticalSpacing = Math.max(40, Math.floor((height - 100) / depth));
-        getNodePositions(tree, nodePositions, width / 2, 100, horizontalSpacing, verticalSpacing, isMobile);
-    }
+   if (tree) {
+    const depth = getTreeDepth(tree);
+    const verticalSpacing = Math.max(40, Math.floor((height - 100) / depth));
+
+    const sidePadding = isMobile ? 20 : 50;
+    getNodePositions(tree, nodePositions, sidePadding, width - sidePadding, 100, verticalSpacing);
+}
+
 
     drawHeader(ctx, { width, height }, state, isMobile);
 

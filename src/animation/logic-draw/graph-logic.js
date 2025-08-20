@@ -50,6 +50,7 @@ function drawHeader(ctx, width, config, state) {
     ctx.fillText(headerText, width / 2, config.headerPosY);
 
     ctx.font = `${config.descSize}px Arial`;
+
     if (state.mst) {
         ctx.fillText("🔴-текущий, 🟡-в очереди, 🟢-посещен", width / 2, config.descPosY);
     } 
@@ -57,7 +58,8 @@ function drawHeader(ctx, width, config, state) {
         ctx.fillText("🔴-k (промежуточный),🔵-i (источник),🟡-j (назначение)", width / 2, config.descPosY);
     } 
     else {
-        ctx.fillText("🔴-текущий,🔵-обновляется,🟡-необработан,🟢-обработан", width / 2, config.descPosY);
+        ctx.fillText("🔴-текущий,🔵-обновляется", width / 2, config.descPosY - 3);
+        ctx.fillText("🟡-необработан,🟢-обработан", width / 2, config.descPosY + 12);
     }
 }
 

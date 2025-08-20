@@ -34,6 +34,16 @@ body, html{
   gap: 2rem;
 }
 
+
+.main a {
+  color: #1abc9c;
+  transition: color 0.3s ease;
+}
+
+.main a:hover {
+  color: #16a085;
+}
+
 a {
   text-decoration: none;
   color: inherit;

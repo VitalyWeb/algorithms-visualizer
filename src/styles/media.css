@@ -22,10 +22,6 @@
     max-width: 130px;
   }
 
-  .algo__animation {
-    padding-bottom: 2rem;
-  }
-
   .footer__container {
     flex-direction: column;
     text-align: center;
@@ -34,12 +30,16 @@
   .footer__right {
     margin-top: 10px;
   }
+
+  .algo__visualization {
+    margin-bottom: 4rem;
+  }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
   .buttons-controls {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 4px;
     justify-items: center;
   }
@@ -47,6 +47,10 @@
   .buttons-controls .btn {
     width: 100%;
     max-width: 100px;
+  }
+
+  .algo__visualization {
+    margin-bottom: 7rem;
   }
 
   .contact,

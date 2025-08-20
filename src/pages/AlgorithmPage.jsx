@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vs } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { flatAlgorithms } from "../data/categories";
-import { useLoader } from "../context/LoaderContext"
+import { useLoader } from "../context/LoaderContext";
 import { animationGenerators } from "../utils/animation-generators";
 
 import NotFound from "./NotFound";
@@ -29,7 +29,8 @@ export default function AlgorithmPage() {
   const codeForLang = algo.code?.[language] || algo.pseudocode || "";
   const animationGenerator = animationGenerators[id];
 
-  const showArraySizeControls = algo.categoryId === "sorting" || algo.categoryId === "search";
+  const showArraySizeControls =
+    algo.categoryId === "sorting" || algo.categoryId === "search";
 
   return (
     <main className="main">
@@ -37,41 +38,51 @@ export default function AlgorithmPage() {
         <i className="fas fa-arrow-left"></i>Назад
       </Link>
 
-      <h1>{algo.title}</h1>
+      <h1 className="algo__title">{algo.title}</h1>
 
-      <h3>Описание</h3>
-      <p>{algo.description}</p>
+      <section className="algo__description">
+        <h3>Описание</h3>
+        <p>{algo.description}</p>
+      </section>
 
-      <h3>Когда использовать</h3>
-      {Array.isArray(algo.using) ? (
-        <ul className="algo__list-custom">
-          {algo.using.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>{algo.using}</p>
-      )}
+      <section className="algo__usage">
+        <h3>Когда использовать</h3>
+        {Array.isArray(algo.using) ? (
+          <ul className="algo__list-custom">
+            {algo.using.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{algo.using}</p>
+        )}
+      </section>
 
-      <h3>Идея</h3>
-      {Array.isArray(algo.idea) ? (
-        <ul className="algo__list-custom">
-          {algo.idea.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>{algo.idea}</p>
-      )}
+      <section className="algo__idea">
+        <h3>Идея</h3>
+        {Array.isArray(algo.idea) ? (
+          <ul className="algo__list-custom">
+            {algo.idea.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>{algo.idea}</p>
+        )}
+      </section>
 
-
-      <h3>Визуализация</h3>
-      <div className="algo__animation">
-        <AnimationPlayer animationGenerator={animationGenerator} showArraySizeControls={showArraySizeControls} />
-      </div>
+      <section className="algo__visualization">
+        <h3>Визуализация</h3>
+        <div className="algo__animation">
+          <AnimationPlayer
+            animationGenerator={animationGenerator}
+            showArraySizeControls={showArraySizeControls}
+          />
+        </div>
+      </section>
 
       {codeForLang && (
-        <div className="algo__code">
+        <section className="algo__code">
           <h3>Код</h3>
 
           <div className="code-tabs">
@@ -95,42 +106,41 @@ export default function AlgorithmPage() {
             </button>
           </div>
 
-          <SyntaxHighlighter
-            language={language}
-            style={vs}
-            showLineNumbers
-          >
+          <SyntaxHighlighter language={language} style={vs} showLineNumbers>
             {codeForLang}
           </SyntaxHighlighter>
-        </div>
+        </section>
       )}
-      <h3>Сложность</h3>
-      <table className="algo__table">
-        <thead>
-          <tr>
-            <th>Случай</th>
-            <th>Сложность</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Лучший</td>
-            <td>{algo.complexity.best}</td>
-          </tr>
-          <tr>
-            <td>Средний</td>
-            <td>{algo.complexity.average}</td>
-          </tr>
-          <tr>
-            <td>Худший</td>
-            <td>{algo.complexity.worst}</td>
-          </tr>
-          <tr>
-            <td>Память</td>
-            <td>{algo.complexity.space}</td>
-          </tr>
-        </tbody>
-      </table>
+
+      <section className="algo__complexity">
+        <h3>Сложность</h3>
+        <table className="algo__table">
+          <thead>
+            <tr>
+              <th>Случай</th>
+              <th>Сложность</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Лучший</td>
+              <td>{algo.complexity.best}</td>
+            </tr>
+            <tr>
+              <td>Средний</td>
+              <td>{algo.complexity.average}</td>
+            </tr>
+            <tr>
+              <td>Худший</td>
+              <td>{algo.complexity.worst}</td>
+            </tr>
+            <tr>
+              <td>Память</td>
+              <td>{algo.complexity.space}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
   );
 }
