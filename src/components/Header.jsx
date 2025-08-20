@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSearchState, useSearchDispatch } from "../context/SearchContext";
-import logo from "../img/logo-min.webp";
+import logo from "../img/logo-min-180w.webp";
 import { useMemo } from "react";
 import { CATEGORIES, flatAlgorithms } from "../data/categories";
 

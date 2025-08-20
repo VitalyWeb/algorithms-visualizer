@@ -8,8 +8,9 @@ export default function Card({ title, image, subtitle, to }) {
       <Link to={to} className="card__link">
         <div className="card__image">
           <LazyLoadImage
-            src={image}
-            alt={title}
+            src={image[360]}
+            srcSet={` ${image[180]} 180w, ${image[360]} 360w`}
+            sizes="(max-width: 600px) 180px, (max-width: 1200px) 360px"
             effect="blur"
             width="100%"
             height="100%"

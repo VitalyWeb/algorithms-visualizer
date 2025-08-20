@@ -1,7 +1,4 @@
-import sort from "../img/sortings-min.webp";
-import search from "../img/search-min.webp";
-import graph from "../img/graph-min.webp";
-import tree from "../img/tree-min.webp";
+import { IMAGES } from "../img/images";
 
 import * as Sort from "../algorithmsInfo/sort-info";
 import * as Search from "../algorithmsInfo/search-info";
@@ -12,7 +9,7 @@ export const CATEGORIES = [
   {
     id: "sorting",
     title: "Сортировка и организация данных",
-    image: sort,
+    image: IMAGES.sorting,
     algorithms: [
       {
         id: "quick-sort",
@@ -82,7 +79,7 @@ export const CATEGORIES = [
   {
     id: "search",
     title: "Алгоритмы поиска",
-    image: search,
+    image: IMAGES.search,
     algorithms: [
       {
         id: "linear-search",
@@ -152,7 +149,7 @@ export const CATEGORIES = [
   {
     id: "graph",
     title: "Графы",
-    image: graph,
+    image: IMAGES.graph,
     algorithms: [
       {
         id: "bfs",
@@ -213,7 +210,7 @@ export const CATEGORIES = [
   {
     id: "tree",
     title: "Деревья",
-    image: tree,
+    image: IMAGES.tree,
     algorithms: [
       { 
         id: "in-order", 
