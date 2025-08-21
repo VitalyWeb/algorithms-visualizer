@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vitalyweb.github.io/algorithms-visualizer/sitemap.xml
